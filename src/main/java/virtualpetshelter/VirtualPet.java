@@ -2,40 +2,35 @@ package virtualpetshelter;
 
 import java.util.Random;
 
-public class VirtualPet {
+ public abstract class VirtualPet {
 
-	private String name;
-	private int hunger;
-	private int boredom;
-	private int waste;
-	private int thirst;
-	private String overallStatus;
-	private String description;
-	private Random stathunger = new Random();
-	private Random statthirst = new Random();
-	private Random statboredom = new Random();
-	private Random statwaste = new Random();
-	private int statmin = 30;
-	private int statmax = 35;
+	protected String name;
+	protected int hunger;
+	protected int boredom;
+	protected int waste;
+	protected int thirst;
+	protected String overallStatus;
+	protected String description;
+	
 
-	public VirtualPet(String name, String description) {
-		this.name = name;
-		this.description = description;
-		this.hunger = stathunger.nextInt(statmax - statmin) + statmin;
-		this.thirst = statthirst.nextInt(statmax - statmin) + statmin;
-		this.waste = statwaste.nextInt(statmax - statmin) + statmin;
-		this.boredom = statboredom.nextInt(statmax - statmin) + statmin;
-	}
+//	public VirtualPet(String name, String description) {
+//		this.name = name;
+//		this.description = description;
+//		this.hunger = stathunger.nextInt(statmax - statmin) + statmin;
+//		this.thirst = statthirst.nextInt(statmax - statmin) + statmin;
+//		this.waste = statwaste.nextInt(statmax - statmin) + statmin;
+//		this.boredom = statboredom.nextInt(statmax - statmin) + statmin;
+//	}
 
-	public VirtualPet(String name, int hunger, int boredom, int waste, int thirst) {
-		// TODO Auto-generated constructor stub
-		this.name = name;
-		this.hunger = hunger;
-		this.boredom = boredom;
-		this.waste = waste;
-		this.thirst = thirst;
-
-	}
+//	public VirtualPet(String name, int hunger, int boredom, int waste, int thirst) {
+//		// TODO Auto-generated constructor stub
+//		this.name = name;
+//		this.hunger = hunger;
+//		this.boredom = boredom;
+//		this.waste = waste;
+//		this.thirst = thirst;
+//
+//	}
 
 	public String getName() {
 		// TODO Auto-generated method stub
@@ -47,15 +42,9 @@ public class VirtualPet {
 		return hunger;
 	}
 
-	public void feedPet(int amountToFeed) {
-		// TODO Auto-generated method stub
-		hunger -= amountToFeed;
-	}
+	
 
-	public void waterPet(int amountToDrink) {
-		// TODO Auto-generated method stub
-		thirst -= amountToDrink;
-	}
+	
 
 	public String getPetStatus() {
 		// TODO Auto-generated method stub
