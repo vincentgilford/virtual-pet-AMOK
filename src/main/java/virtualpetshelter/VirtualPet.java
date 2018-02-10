@@ -12,9 +12,9 @@ import java.util.Random;
 	protected int boredom;
 	 
 	
-	protected int hunger;
-	protected int waste;
-	protected int thirst;
+//	protected int hunger;
+//	protected int waste;
+//	protected int thirst;
 //	public VirtualPet(String name, String description) {
 //		this.name = name;
 //		this.description = description;

@@ -2,7 +2,7 @@ package virtualpetshelter;
 
 import java.util.Random;
 
-public class OrganicDog extends Dog {
+public class OrganicDog extends Dog implements Walkable {
 	protected int hunger;
 	protected int waste;
 	protected int thirst;
@@ -18,7 +18,7 @@ public class OrganicDog extends Dog {
 	protected int statmax = 35;
 	protected int statMaxHealth = 100;
 	protected int statMinHealth = 80;
-	protected boolean isWalking = false;
+	
 	
 //	public OrganicDog (String name, String description) {
 //		this.name = name;
@@ -48,11 +48,6 @@ public class OrganicDog extends Dog {
 		return hunger;
 	}
 	
-	public int getBoredom() {
-		// TODO Auto-generated method stub
-		return boredom;
-	}
-	
 	public int getThirst() {
 		// TODO Auto-generated method stub
 		return thirst;
@@ -77,12 +72,37 @@ public class OrganicDog extends Dog {
 		// TODO Auto-generated method stub
 		thirst -= amountToDrink;
 	}
-
-	public int getHealth() {
+	public  void happinessEffect() {
+	// TODO Auto-generated method stub
+			if((50 >= hunger && hunger >= 45)|| (50 >= thirst && thirst >= 45)) {
+				happiness -=5; 
+			}
+			
+			if((50 >= boredom && boredom >= 45) ||(50 >= waste &&  waste >= 45)) {
+				happiness -=2; 
+			}
+			
+			if((40 >= hunger && hunger >= 35)|| (40 >= thirst && thirst >= 35)) {
+				happiness +=5; 
+			}
+			
+			if((40 >= boredom && boredom >= 35)|| (40 >= thirst && thirst >= 35)) {
+				happiness +=2; 
+			}
+		
+			if(health <50) {
+				happiness -=10;
+			}
+		
+		}
+	
+	public void walkPet() {
 		// TODO Auto-generated method stub
-		return health;
-	}
-
+		happiness +=5; 
+		waste -= 6;
+		isWalking = true; 
+	} 
+	
 	public void healthEffect() {
 		// TODO Auto-generated method stub
 		if(hunger >= 45) {
@@ -102,42 +122,11 @@ public class OrganicDog extends Dog {
 		}
 	}
 
-	public void happinessEffect() {
+	@Override
+	public boolean isWalking() {
 		// TODO Auto-generated method stub
-		if((50 >= hunger && hunger >= 45)|| (50 >= thirst && thirst >= 45)) {
-			happiness -=5; 
-		}
-		
-		if((50 >= boredom && boredom >= 45) ||(50 >= waste &&  waste >= 45)) {
-			happiness -=2; 
-		}
-		
-		if((40 >= hunger && hunger >= 35)|| (40 >= thirst && thirst >= 35)) {
-			happiness +=5; 
-		}
-		
-		if((40 >= boredom && boredom >= 35)|| (40 >= thirst && thirst >= 35)) {
-			happiness +=2; 
-		}
-	
-		if(health <50) {
-			happiness -=10;
-		}
-	
+		return isWalking;
 	}
-
-	public int getHappiness() {
-		// TODO Auto-generated method stub
-		return happiness;
-	}
-
-	public void walkPet() {
-		// TODO Auto-generated method stub
-		happiness +=5; 
-		waste -= 6;
-		isWalking = true; 
-	}
-		
 		
 }
 
