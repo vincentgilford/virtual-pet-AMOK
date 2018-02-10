@@ -11,8 +11,9 @@ import java.util.Random;
 	protected int thirst;
 	protected String overallStatus;
 	protected String description;
+	protected int health; 
+	protected int happiness; 
 	
-
 //	public VirtualPet(String name, String description) {
 //		this.name = name;
 //		this.description = description;
@@ -37,14 +38,6 @@ import java.util.Random;
 		return name;
 	}
 
-	public int getHunger() {
-		// TODO Auto-generated method stub
-		return hunger;
-	}
-
-	
-
-	
 
 	public String getPetStatus() {
 		// TODO Auto-generated method stub
@@ -71,38 +64,26 @@ import java.util.Random;
 		boredom -= amountPlay;
 	}
 
-	public int getBoredom() {
-		// TODO Auto-generated method stub
-		return boredom;
-	}
+	
 
-	public int getThirst() {
-		// TODO Auto-generated method stub
-		return thirst;
-	}
 
-	public int getWaste() {
-		// TODO Auto-generated method stub
-		return waste;
-	}
+
+
 
 	public String getDescription() {
 		// TODO Auto-generated method stub
 		return description;
 	}
 
-	public void tickEffect() {
-		// TODO Auto-generated method stub
-		hunger += 2;
-		thirst += 2;
-		boredom += 2;
-		waste += 2;
+//	public void tickEffect() {
+//		// TODO Auto-generated method stub
+//		hunger += 2;
+//		thirst += 2;
+//		boredom += 2;
+//		waste += 2;
+//
+//	}
 
-	}
 
-	public void wasteRemoval(int wasteAmount) {
-		// TODO Auto-generated method stub
-		waste -= wasteAmount;
-	}
 
 }
