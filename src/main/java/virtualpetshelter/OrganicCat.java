@@ -126,6 +126,17 @@ public class OrganicCat extends Cat {
 			happiness -=10;
 		}
 	}
+
+	@Override
+	public void tickEffect() {
+		// TODO Auto-generated method stub
+		healthEffect();
+		happinessEffect();
+		hunger += 5;
+		thirst += 5;
+		boredom += 5;
+		waste += 5;
+	}
 	
 	
 	

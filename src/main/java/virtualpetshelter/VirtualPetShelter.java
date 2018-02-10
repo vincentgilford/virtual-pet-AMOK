@@ -8,11 +8,15 @@ public class VirtualPetShelter {
 
 	Map<String, VirtualPet> virtualPets = new HashMap<String, VirtualPet>();
 
-	public void addPet(VirtualPet pet) {
-		virtualPets.put(pet.getName(), pet);
-
+	public void addPet(OrganicCat pet) {
+		virtualPets.put(pet.getName(),  pet);
 	}
-
+	
+	public void addPet(RoboticDog pet) {
+		virtualPets.put(pet.getName(), pet);
+	}
+	
+	
 	public VirtualPet findPet(VirtualPet pet) {
 		// TODO Auto-generated method stub
 		return virtualPets.get(pet.getName());
@@ -30,15 +34,17 @@ public class VirtualPetShelter {
 
 	public void feedPetShelter(String name, int amountToFeed) {
 		// TODO Auto-generated method stub
-		VirtualPet petObject = virtualPets.get(name);
-		petObject.feedPet(amountToFeed);
+		OrganicCat petObject = virtualPets.get(name);
+		if(petObject instanceof Cat) {
+			(OrganicCat) petObject.feedPet(10);
+		}
 	}
 
 	public void waterPetShelter(String name, int amountToDrink) {
 		// TODO Auto-generated method stub
 		VirtualPet petObject = virtualPets.get(name);
 		petObject.waterPet(amountToDrink);
-
+		virtualPets.get(name).
 	}
 
 	public String petShelterStatus(String name) {

@@ -38,26 +38,26 @@ import java.util.Random;
 		// TODO Auto-generated method stub
 		return name;
 	}
-
+	
 
 	public String getPetStatus() {
-		// TODO Auto-generated method stub
-		if ((hunger <= 50 && hunger > 45) && (thirst <= 50 && thirst > 45) && (waste <= 50 && waste > 45)
-				&& (boredom <= 50 && boredom > 45)) {
-			overallStatus = getName() + " is not doing well!";
-		} else if ((hunger <= 45 && hunger > 40) && (thirst <= 45 && thirst > 40) && (waste <= 45 && waste > 40)
-				&& (boredom <= 45 && boredom >= 40)) {
-			overallStatus = getName() + " is ok but needs more care. Please take notice ";
-		} else if ((hunger <= 40 && hunger > 35) && (thirst <= 40 && thirst > 35) && (waste <= 40 && waste > 35)
-				&& (boredom <= 40 && boredom >= 35)) {
-			overallStatus = getName() + " is doing well. Keep up the good work!";
-		} else if ((hunger <= 35) && (thirst <= 35) && (waste <= 35) && (boredom <= 35)) {
-			overallStatus = getName() + " is doing amazing!!!";
-		} else {
-			overallStatus = getName() + " please take notice your pet is in grave danger!";
-		}
-
-		return overallStatus; // may put the logic of status in another method
+//		// TODO Auto-generated method stub
+//		if ((hunger <= 50 && hunger > 45) && (thirst <= 50 && thirst > 45) && (waste <= 50 && waste > 45)
+//				&& (boredom <= 50 && boredom > 45)) {
+//			overallStatus = getName() + " is not doing well!";
+//		} else if ((hunger <= 45 && hunger > 40) && (thirst <= 45 && thirst > 40) && (waste <= 45 && waste > 40)
+//				&& (boredom <= 45 && boredom >= 40)) {
+//			overallStatus = getName() + " is ok but needs more care. Please take notice ";
+//		} else if ((hunger <= 40 && hunger > 35) && (thirst <= 40 && thirst > 35) && (waste <= 40 && waste > 35)
+//				&& (boredom <= 40 && boredom >= 35)) {
+//			overallStatus = getName() + " is doing well. Keep up the good work!";
+//		} else if ((hunger <= 35) && (thirst <= 35) && (waste <= 35) && (boredom <= 35)) {
+//			overallStatus = getName() + " is doing amazing!!!";
+//		} else {
+//			overallStatus = getName() + " please take notice your pet is in grave danger!";
+//		}
+//
+		return "";//overallStatus; // may put the logic of status in another method
 	}
 
 	public void petPlayBoredom(int amountPlay) {
@@ -70,15 +70,15 @@ import java.util.Random;
 		return description;
 	}
 
-//	public void tickEffect() {
-//		// TODO Auto-generated method stub
-//		hunger += 2;
-//		thirst += 2;
-//		boredom += 2;
-//		waste += 2;
-//
-//	}
+	abstract public void tickEffect();
+		// TODO Auto-generated method stub
 
 
+	
 
+	
+	public void feedOrganicPet() {
+		
+	}
+	
 }

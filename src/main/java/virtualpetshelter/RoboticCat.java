@@ -80,4 +80,19 @@ public class RoboticCat extends Cat {
 		return isOiled;
 	}
 	
+	public void chargePet(int amountToCharge) {
+		health += amountToCharge;
+		
+	}
+
+	@Override
+	public void tickEffect() {
+		// TODO Auto-generated method stub
+		health -= 5;
+		happiness -= 5;
+		boredom += 2;
+		healthEffect();
+		happinessEffect();
+	}
+	
 }

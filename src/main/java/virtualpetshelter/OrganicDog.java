@@ -72,6 +72,7 @@ public class OrganicDog extends Dog implements Walkable {
 		// TODO Auto-generated method stub
 		thirst -= amountToDrink;
 	}
+	
 	public  void happinessEffect() {
 	// TODO Auto-generated method stub
 			if((50 >= hunger && hunger >= 45)|| (50 >= thirst && thirst >= 45)) {
@@ -122,11 +123,28 @@ public class OrganicDog extends Dog implements Walkable {
 		}
 	}
 
+	
 	@Override
 	public boolean isWalking() {
 		// TODO Auto-generated method stub
 		return isWalking;
 	}
+
+	
+	@Override
+	public void tickEffect() {
+		// TODO Auto-generated method stub
+		healthEffect();
+		happinessEffect();
+		hunger += 5;
+		thirst += 5;
+		boredom += 5;
+		waste += 5;
+	}
+	
+	
+	
+	
 		
 }
 

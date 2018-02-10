@@ -22,12 +22,16 @@ public class RoboticDog extends Dog implements Walkable {
 	@Override
 	public void healthEffect() {
 		// TODO Auto-generated method stub
-		if(oilLevel <= 50) {
+		if(oilLevel <= 80) {
 			health -=10;
 		}
 		
 		if (50 >= boredom && boredom >=45) {
 			health -= 5; 
+		}
+		
+		if(isOiled) {
+			health +=5; 
 		}
 	}
 
@@ -42,6 +46,12 @@ public class RoboticDog extends Dog implements Walkable {
 			happiness -= 5;
 			
 		}
+		
+		if(isOiled == false) {
+			happiness -= 5;
+			
+		}
+		
 	}
 
 	/* (non-Javadoc)
@@ -77,7 +87,21 @@ public class RoboticDog extends Dog implements Walkable {
 		return isWalking;
 	}
 
-	
+	@Override
+	public void tickEffect() {
+		// TODO Auto-generated method stub
+		health -= 5;
+		happiness -= 5;
+		boredom += 2;
+		healthEffect();
+		happinessEffect();
+		
+	}
+
+	public void chargePet(int amountToCharge) {
+		health += amountToCharge;
+		
+	}
 
 	
 
