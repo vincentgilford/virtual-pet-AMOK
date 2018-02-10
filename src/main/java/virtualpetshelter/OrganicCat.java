@@ -2,7 +2,7 @@ package virtualpetshelter;
 
 import java.util.Random;
 
-public class OrganicDog extends Dog {
+public class OrganicCat extends Cat {
 	protected int hunger;
 	protected int waste;
 	protected int thirst;
@@ -18,64 +18,61 @@ public class OrganicDog extends Dog {
 	protected int statmax = 35;
 	protected int statMaxHealth = 100;
 	protected int statMinHealth = 80;
-	protected boolean isWalking = false;
 	
-//	public OrganicDog (String name, String description) {
-//		this.name = name;
-//		this.description = description;
-//		this.hunger = stathunger.nextInt(statmax - statmin) + statmin;
-//		this.thirst = statthirst.nextInt(statmax - statmin) + statmin;
-//		this.waste = statwaste.nextInt(statmax - statmin) + statmin;
-//		this.boredom = statboredom.nextInt(statmax - statmin) + statmin;
-//		this.health = stathealth.nextInt(statMaxHealth - statMinHealth) + statMinHealth;
-//		this.happiness = stathappiness.nextInt(statMaxHealth - statMinHealth) + statMinHealth;
-//	}
-	
-	
-	public OrganicDog(String name, int hunger, int boredom, int waste, int thirst, int health, int happiness) {
-	// TODO Auto-generated constructor stub
-	this.name = name;
-	this.hunger = hunger;
-	this.boredom = boredom;
-	this.waste = waste;
-	this.thirst = thirst;
-	this.health = health;
-	this.happiness= happiness; 
+	public OrganicCat(String name, int hunger, int boredom, int waste, int thirst, int health, int happiness) {
+		// TODO Auto-generated constructor stub
+		this.name = name;
+		this.hunger = hunger;
+		this.boredom = boredom;
+		this.waste = waste;
+		this.thirst = thirst;
+		this.health = health;
+		this.happiness= happiness; 
 	}
 	
+	public OrganicCat(String name, String description) {
+	this.name = name;
+	this.description = description;
+	this.hunger = stathunger.nextInt(statmax - statmin) + statmin;
+	this.thirst = statthirst.nextInt(statmax - statmin) + statmin;
+	this.waste = statwaste.nextInt(statmax - statmin) + statmin;
+	this.boredom = statboredom.nextInt(statmax - statmin) + statmin;
+	//add health and happiness
+	}
+
 	public int getHunger() {
 		// TODO Auto-generated method stub
 		return hunger;
 	}
-	
-	public int getBoredom() {
-		// TODO Auto-generated method stub
-		return boredom;
-	}
-	
-	public int getThirst() {
-		// TODO Auto-generated method stub
-		return thirst;
-	}
-	
-	public void wasteRemoval(int wasteAmount) {
-		// TODO Auto-generated method stub
-		waste -= wasteAmount;
-	}
-	
-	public int getWaste() {
-		// TODO Auto-generated method stub
-		return waste;
-	}
-	
+
 	public void feedPet(int amountToFeed) {
 		// TODO Auto-generated method stub
 		hunger -= amountToFeed;
 	}
-	
+
+	public int getThirst() {
+		// TODO Auto-generated method stub
+		return thirst;
+	}
+
 	public void waterPet(int amountToDrink) {
 		// TODO Auto-generated method stub
 		thirst -= amountToDrink;
+	}
+
+	public int getWaste() {
+		// TODO Auto-generated method stub
+		return waste;
+	}
+
+	public void wasteRemoval(int amountToRemove) {
+		// TODO Auto-generated method stub
+		waste -= amountToRemove;
+	}
+
+	public int getBoredom() {
+		// TODO Auto-generated method stub
+		return boredom;
 	}
 
 	public int getHealth() {
@@ -102,6 +99,11 @@ public class OrganicDog extends Dog {
 		}
 	}
 
+	public int getHappiness() {
+		// TODO Auto-generated method stub
+		return happiness;
+	}
+
 	public void happinessEffect() {
 		// TODO Auto-generated method stub
 		if((50 >= hunger && hunger >= 45)|| (50 >= thirst && thirst >= 45)) {
@@ -123,21 +125,15 @@ public class OrganicDog extends Dog {
 		if(health <50) {
 			happiness -=10;
 		}
+	}
 	
-	}
-
-	public int getHappiness() {
-		// TODO Auto-generated method stub
-		return happiness;
-	}
-
-	public void walkPet() {
-		// TODO Auto-generated method stub
-		happiness +=5; 
-		waste -= 6;
-		isWalking = true; 
-	}
-		
-		
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
-

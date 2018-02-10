@@ -5,15 +5,16 @@ import java.util.Random;
  public abstract class VirtualPet {
 
 	protected String name;
-	protected int hunger;
+	protected String description;
+	protected int health;
+	protected int happiness; 
+	protected String overallStatus;
 	protected int boredom;
+	 
+	
+	protected int hunger;
 	protected int waste;
 	protected int thirst;
-	protected String overallStatus;
-	protected String description;
-	protected int health; 
-	protected int happiness; 
-	
 //	public VirtualPet(String name, String description) {
 //		this.name = name;
 //		this.description = description;
@@ -63,12 +64,6 @@ import java.util.Random;
 		// TODO Auto-generated method stub
 		boredom -= amountPlay;
 	}
-
-	
-
-
-
-
 
 	public String getDescription() {
 		// TODO Auto-generated method stub
