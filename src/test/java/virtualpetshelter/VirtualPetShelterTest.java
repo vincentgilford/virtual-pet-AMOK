@@ -24,6 +24,7 @@ public class VirtualPetShelterTest {
 	private static final int waste = 30;
 	private static final String dogName = "Fido";
 	private static final String catName = "Kitty";
+	private static final String orgCatName = "RobotKitty";
 	private static final int health = 100;
 	private static final int happiness = 60;
 	private static final int oilLevel = 50;
@@ -32,6 +33,8 @@ public class VirtualPetShelterTest {
 	private OrganicDog organicDog;
 	private RoboticCat roboticCat;
 	private RoboticDog roboticDog;
+	private OrganicCat organicCat;
+	
 	
 	@Before
 	public void setup() {
@@ -40,6 +43,7 @@ public class VirtualPetShelterTest {
 		organicDog = new OrganicDog (dogName, hunger, boredome, waste, thirst, health, happiness);
 		roboticCat = new RoboticCat (catName, boredome, health, happiness, oilLevel);  
 		roboticDog = new RoboticDog (dogRobotName, boredome, health, happiness, oilLevel);
+		organicCat = new OrganicCat (orgCatName, hunger, boredome, waste, thirst, health, happiness);
 	}
 	
 	@Test
@@ -105,21 +109,84 @@ public class VirtualPetShelterTest {
 		underTest.cleanPetShelter(dogName, 10);
 		OrganicDog pet = (OrganicDog) underTest.findPet(dogName);
 		assertThat(20, is(pet.getWaste()));
-		
-		
 	}
 	
-	@Test//robot test
-	public void oilRoboticPet() {
+	@Test
+	public void isAbleToPlay() {
 		underTest.addPet(organicDog);
 		underTest.addPet(roboticCat);
 		underTest.addPet(roboticDog);
 		
+		underTest.petShelterPlay(dogRobotName, 10);
+		RoboticDog pet = (RoboticDog) underTest.findPet(dogRobotName);
 		
+		assertThat(20,is(pet.getBoredom()));
+	}
+	
+	@Test
+	public void isAbleToFeedAllOrganic() {
+		underTest.addPet(organicDog);
+		underTest.addPet(roboticCat);
+		underTest.addPet(roboticDog);
+		underTest.addPet(organicCat);
+	
+		underTest.feedAllPets();
+		
+		OrganicCat oCat = (OrganicCat) underTest.findPet(orgCatName);
+		OrganicDog oDog = (OrganicDog) underTest.findPet(dogName);
+		
+		assertThat(40 , is(oDog.getHunger()));
+		assertThat(40, is(oCat.getHunger()));
+		
+	}
+	
+	@Test
+	public void waterAllOrganicPets() {
+		underTest.addPet(organicDog);
+		underTest.addPet(roboticCat);
+		underTest.addPet(roboticDog);
+		underTest.addPet(organicCat);
+	
+		underTest.waterAllPets();
+		
+		OrganicCat oCat = (OrganicCat) underTest.findPet(orgCatName);
+		OrganicDog oDog = (OrganicDog) underTest.findPet(dogName);
+		
+		assertThat(40 , is(oDog.getThirst()));
+		assertThat(40, is(oCat.getThirst()));
+	}
+	
+	@Test
+	public void removeOrganicWaste() {
+		underTest.addPet(organicDog);
+		underTest.addPet(roboticCat);
+		underTest.addPet(roboticDog);
+		underTest.addPet(organicCat);
+	
+		underTest.organicWasteRemove()
+		
+		OrganicCat oCat = (OrganicCat) underTest.findPet(orgCatName);
+		OrganicDog oDog = (OrganicDog) underTest.findPet(dogName);
+		
+		assertThat(40 , is(oDog.getWaste()));
+		assertThat(40, is(oCat.getWaste()));
 		
 		
 		
 	}
+	
+	
+	
+	
+	
+//	@Test//robot test
+//	public void oilRoboticPet() {
+//		underTest.addPet(organicDog);
+//		underTest.addPet(roboticCat);
+//		underTest.addPet(roboticDog);
+//		
+//		
+//	}
 	
 	
 	

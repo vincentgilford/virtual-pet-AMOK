@@ -136,6 +136,48 @@ public class VirtualPetShelter {
 		// TODO Auto-generated method stub
 		return virtualPets.values();
 	}
+
+	public void feedAllPets() {
+		// TODO Auto-generated method stub
+		for(VirtualPet pet : virtualPets.values()) {
+			if(pet instanceof OrganicDog || pet instanceof OrganicCat) {
+				pet.feedOrganicPet(10);
+			} else {
+				System.out.println("Robotic Pets cannot be fed");
+			}
+		}
+	}
+
+	public void waterAllPets() {
+		// TODO Auto-generated method stub
+		for(VirtualPet pet : virtualPets.values()) {
+			if(pet instanceof OrganicDog || pet instanceof OrganicCat) {
+				pet.waterPet(10);
+			} else {
+				System.out.println("Robotic Pets cannot be fed");
+			}
+		}
+	}
+
+	public void organicWasteRemove() {
+		// TODO Auto-generated method stub
+		for(VirtualPet pet : virtualPets.values()) {
+			if(pet instanceof OrganicCat) {
+				pet.wasteRemoval(5);;
+			} else if(pet instanceof OrganicDog) {
+				
+				
+			}else {
+				System.out.println("Robotic Pets cannot be fed");
+			}
+		}
+	}
+	
+	
+	
+
+	
+	
 	
 	
 
