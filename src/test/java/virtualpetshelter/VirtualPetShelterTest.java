@@ -1,15 +1,125 @@
 package virtualpetshelter;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
+
+import java.util.Collection;
+
+import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.hamcrest.Matchers.contains;
 
 import org.junit.Before;
 
 import static org.hamcrest.Matchers.is;
 import org.junit.Test;
 
+
 public class VirtualPetShelterTest {
+	private static final int hunger = 50;
+	private static final int thirst = 50;
+	private static final int boredome = 30;
+	private static final int waste = 30;
+	private static final String dogName = "Fido";
+	private static final String catName = "Kitty";
+	private static final int health = 100;
+	private static final int happiness = 60;
+	private static final int oilLevel = 50;
+	private static final String dogRobotName = "Astro";
+	private VirtualPetShelter underTest; 
+	private OrganicDog organicDog;
+	private RoboticCat roboticCat;
+	private RoboticDog roboticDog;
+	
+	@Before
+	public void setup() {
+		
+		underTest = new VirtualPetShelter();
+		organicDog = new OrganicDog (dogName, hunger, boredome, waste, thirst, health, happiness);
+		roboticCat = new RoboticCat (catName, boredome, health, happiness, oilLevel);  
+		roboticDog = new RoboticDog (dogRobotName, boredome, health, happiness, oilLevel);
+	}
+	
+	@Test
+	public void addVirtualPetToShelter() {
+		
+		
+		underTest.addPet(organicDog);
+		Collection<VirtualPet> check = underTest.getAllPets();
+		
+		assertThat(check, contains(organicDog));
+	}
+
+	@Test
+	public void addTwoVirtualPetToShelter() {  
+		OrganicDog  organicDog = new OrganicDog (dogName, hunger, boredome, waste, thirst, health, happiness);
+		RoboticCat roboticCat = new RoboticCat (catName, boredome, health, happiness, oilLevel);
+		
+		underTest.addPet(organicDog);
+		underTest.addPet(roboticCat);
+
+		Collection<VirtualPet> check = underTest.getAllPets();
+		
+		assertThat(check, containsInAnyOrder(roboticCat,organicDog));
+	}
+	
+	@Test
+	public void isAbleToFeedPet() {
+		underTest.addPet(organicDog);
+		underTest.feedPetShelter(dogName, 10);
+		OrganicDog pet = (OrganicDog) underTest.findPet(dogName);
+		int check = pet.getHunger();
+		
+		assertThat(40, is(check));
+	}
+	
+	
+	@Test
+	public void isAbledAdoptPet() {
+		underTest.addPet(organicDog);
+
+		
+		underTest.adoptPet(organicDog);
+		int retrieved = 0; 
+		assertEquals(retrieved, underTest.shelterSize());
+	}
+	
+	@Test
+	public void isAbleToWater() {
+		underTest.addPet(organicDog);
+		
+		underTest.waterPetShelter(dogName, 10);
+		OrganicDog pet = (OrganicDog) underTest.findPet(dogName);
+		
+		assertThat(40, is(pet.getThirst()));
+	}
+	
+	@Test
+	public void isAbleToRemoveWaste() {
+		underTest.addPet(organicDog);
+		underTest.addPet(roboticCat);
+		underTest.addPet(roboticDog);
+		
+		underTest.cleanPetShelter(dogName, 10);
+		OrganicDog pet = (OrganicDog) underTest.findPet(dogName);
+		assertThat(20, is(pet.getWaste()));
+		
+		
+	}
+	
+	@Test//robot test
+	public void oilRoboticPet() {
+		underTest.addPet(organicDog);
+		underTest.addPet(roboticCat);
+		underTest.addPet(roboticDog);
+		
+		
+		
+		
+		
+	}
 	
 	
 	

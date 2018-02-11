@@ -14,9 +14,9 @@ public class VirtualPetShelter {
 		virtualPets.put(pet.getName(), pet);
 	}
 	
-	public VirtualPet findPet(VirtualPet pet) {
+	public VirtualPet findPet(String petName) {
 		// TODO Auto-generated method stub
-		return virtualPets.get(pet.getName());
+		return virtualPets.get(petName);
 	}
 
 	public void adoptPet(VirtualPet pet) {
@@ -122,7 +122,19 @@ public class VirtualPetShelter {
 	public void cleanPetShelter(String name, int wasteAmount) {
 		// TODO Auto-generated method stub
 		VirtualPet petObject = virtualPets.get(name);
-		petObject.wasteRemoval(wasteAmount);
+		if(petObject instanceof OrganicCat || petObject instanceof OrganicDog) {
+			petObject.wasteRemoval(wasteAmount);
+		} else {
+			
+		System.out.println("Robots do not have waste!");	
+		}
+		
+		
+	}
+
+	public Collection<VirtualPet> getAllPets() {
+		// TODO Auto-generated method stub
+		return virtualPets.values();
 	}
 	
 	
