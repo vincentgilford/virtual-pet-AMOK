@@ -163,10 +163,9 @@ public class VirtualPetShelter {
 		// TODO Auto-generated method stub
 		for(VirtualPet pet : virtualPets.values()) {
 			if(pet instanceof OrganicCat) {
-				pet.wasteRemoval(5);;
+				pet.wasteRemoval(5);
 			} else if(pet instanceof OrganicDog) {
-				
-				
+					//dog cages
 			}else {
 				System.out.println("Robotic Pets cannot be fed");
 			}

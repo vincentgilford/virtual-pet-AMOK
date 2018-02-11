@@ -163,17 +163,16 @@ public class VirtualPetShelterTest {
 		underTest.addPet(roboticDog);
 		underTest.addPet(organicCat);
 	
-		underTest.organicWasteRemove()
+		underTest.organicWasteRemove();
 		
 		OrganicCat oCat = (OrganicCat) underTest.findPet(orgCatName);
 		OrganicDog oDog = (OrganicDog) underTest.findPet(dogName);
 		
 		assertThat(40 , is(oDog.getWaste()));
 		assertThat(40, is(oCat.getWaste()));
-		
-		
-		
 	}
+	
+	
 	
 	
 	

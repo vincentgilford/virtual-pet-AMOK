@@ -11,11 +11,13 @@ public class OrganicDog extends Dog implements Walkable {
 	protected Random stathealth = new Random();
 	protected Random stathappiness = new Random();
 
+	protected int cageWasteLevel = 0;
 	protected int statmin = 30;
 	protected int statmax = 35;
 	protected int statMaxHealth = 100;
 	protected int statMinHealth = 80;
-
+	
+	
 	public OrganicDog(String name, int hunger, int boredom, int waste, int thirst, int health, int happiness) {
 		// TODO Auto-generated constructor stub
 		this.name = name;
@@ -135,10 +137,25 @@ public class OrganicDog extends Dog implements Walkable {
 		// TODO Auto-generated method stub
 		healthEffect();
 		happinessEffect();
+		cageEffect();
 		hunger += 5;
 		thirst += 5;
 		boredom += 5;
 		waste += 5;
 	}
 
+	@Override
+	public int getCageLevel() {
+		return cageWasteLevel;
+	}
+
+	public void cageEffect() {
+		// TODO Auto-generated method stub
+		if(waste > 40) {
+			cageWasteLevel += 10; 
+		} else if (waste > 60) {
+			cageWasteLevel +=20;
+		}
+	}
+	
 }

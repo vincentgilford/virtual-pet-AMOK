@@ -137,6 +137,20 @@ public class OrganicDogTest {
 		
 	}
 	
+	@Test
+	public void wasteLevelEffectOnCageLevel() {
+		
+		
+		int beforeCageLvl = underTest.getCageLevel();
+		underTest.cageEffect(); 
+		int afterCageLvl = underTest.getCageLevel(); 
+		int check = underTest.getCageLevel();
+		
+		assertThat(check, is(afterCageLvl-beforeCageLvl));
+		
+		
+		
+	}
 	
 	
 	

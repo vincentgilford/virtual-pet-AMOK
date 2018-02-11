@@ -122,4 +122,12 @@ public abstract class VirtualPet {
 
 	}
 
+	
+	public int getCageLevel() {
+		return 0;
+	}
+	
+	public void cageEffect() {
+	}
+
 }

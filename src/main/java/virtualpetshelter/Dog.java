@@ -6,6 +6,8 @@ import java.util.Random;
 public abstract class Dog extends VirtualPet{
 	
 	protected boolean isWalking = false;
+	
+	
 	protected Random statboredom = new Random();
 	protected Random stathealth = new Random();
 	protected Random stathappiness = new Random();
