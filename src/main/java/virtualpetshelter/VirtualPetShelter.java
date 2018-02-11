@@ -201,6 +201,14 @@ public class VirtualPetShelter {
 			}
 		} 
 	}
+
+	public void cleanLitterBox() {
+		// TODO Auto-generated method stub
+		litterBox -=10;
+		if (litterBox == 0) {
+			System.out.println("Litter Box is empty");
+		}
+	}
 	
 	
 	

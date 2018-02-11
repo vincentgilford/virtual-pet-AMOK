@@ -271,6 +271,22 @@ public class VirtualPetShelterTest {
 		assertNotEquals(checkoCatBefore, checkoCatAfter);
 	}
 	
+	@Test
+	public void assertThatLitterBoxIsEmptied() {
+		underTest.addPet(organicDog);
+		underTest.addPet(roboticCat);
+		underTest.addPet(roboticDog);
+		underTest.addPet(organicCat);
+	
+		OrganicCat oCat = (OrganicCat) underTest.findPet(orgCatName);
+		underTest.organicWasteRemove();
+		int checkBefore = underTest.getLitterBox();
+		underTest.cleanLitterBox();
+		int checkAFter = underTest.getLitterBox();
+		int check = 10;
+		assertThat(check, is(checkBefore-checkAFter));
+	}
+	
 	
 	
 	
