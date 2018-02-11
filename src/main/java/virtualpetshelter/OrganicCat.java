@@ -138,7 +138,7 @@ public class OrganicCat extends Cat {
 		thirst += 5;
 		boredom += 5;
 		waste += 5;
-		System.out.println(getName() + "waste leve is" + getWaste());
+		System.out.println(getName() + " waste leve is " + getWaste());
 	}
 
 }

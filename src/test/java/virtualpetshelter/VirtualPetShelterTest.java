@@ -243,7 +243,33 @@ public class VirtualPetShelterTest {
 		assertThat(5, is(organicCheckAFter-organicCheckBefore));
 	}
 	
-	
+	@Test
+	public void assertTickMethodEffect() {
+		underTest.addPet(organicDog);
+		underTest.addPet(roboticCat);
+		underTest.addPet(roboticDog);
+		underTest.addPet(organicCat);
+		RoboticDog rDog = (RoboticDog) underTest.findPet(dogRobotName);
+		OrganicDog oDog = (OrganicDog) underTest.findPet(dogName);
+		OrganicCat oCat = (OrganicCat) underTest.findPet(orgCatName);
+		RoboticCat rCat = (RoboticCat) underTest.findPet(catName);
+		int checkrDogBefore = rDog.getHappiness();
+		int checkrCatBefore = rCat.getHappiness();
+		int checkoDogBefore = oDog.getHappiness();
+		int checkoCatBefore = oCat.getHappiness();
+		
+		underTest.tickCycle();
+		
+		int checkrDogAfter = rDog.getHappiness();
+		int checkrCatAfter = rCat.getHappiness();
+		int checkoDogAfter = rDog.getHappiness();
+		int checkoCatAfter = rDog.getHappiness();
+		
+		assertNotEquals(checkrDogBefore, checkrDogAfter);
+		assertNotEquals(checkrCatBefore, checkrCatAfter);
+		assertNotEquals(checkoDogBefore, checkoDogAfter);
+		assertNotEquals(checkoCatBefore, checkoCatAfter);
+	}
 	
 	
 	
