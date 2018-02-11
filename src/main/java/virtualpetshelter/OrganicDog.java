@@ -54,6 +54,7 @@ public class OrganicDog extends Dog implements Walkable {
 	public void wasteRemoval(int wasteAmount) {
 		// TODO Auto-generated method stub
 		waste -= wasteAmount;
+		cageWasteLevel += wasteAmount;
 	}
 
 	public int getWaste() {
@@ -149,13 +150,22 @@ public class OrganicDog extends Dog implements Walkable {
 		return cageWasteLevel;
 	}
 
+	@Override
 	public void cageEffect() {
 		// TODO Auto-generated method stub
-		if(waste > 40) {
+		if(waste >= 30) {
 			cageWasteLevel += 10; 
 		} else if (waste > 60) {
 			cageWasteLevel +=20;
+		} else {
+			System.out.println("Cage is relatively clean...");
 		}
+	}
+	
+	@Override 
+	public void cleanCage() {
+		// TODO Auto-generated method stub
+		cageWasteLevel -= 5; 
 	}
 	
 }

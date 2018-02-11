@@ -8,7 +8,8 @@ public class VirtualPetShelter {
 
 	Map<String, VirtualPet> virtualPets = new HashMap<String, VirtualPet>();
 
-	
+	public int litterBox = 0; 
+	public int poop = 0;
 	
 	public void addPet(VirtualPet pet) {
 		virtualPets.put(pet.getName(), pet);
@@ -163,15 +164,37 @@ public class VirtualPetShelter {
 		// TODO Auto-generated method stub
 		for(VirtualPet pet : virtualPets.values()) {
 			if(pet instanceof OrganicCat) {
-				pet.wasteRemoval(5);
+				pet.wasteRemoval(10);
+				poop += 10;  
+				litterBox = poop;
 			} else if(pet instanceof OrganicDog) {
-					//dog cages
+					pet.wasteRemoval(10);//dog cages
 			}else {
-				System.out.println("Robotic Pets cannot be fed");
+				System.out.println("Robotic Pets do not have waste");
 			}
+		}
+		
+		
+	
+		
+		
+		
+	}
+	
+	public int getLitterBox() {
+		return litterBox;
+		
+	}
+
+	public void playAll() {
+		// TODO Auto-generated method stub
+		for(VirtualPet pet : virtualPets.values()){
+			pet.petPlayBoredom(10);
 		}
 	}
 	
+	
+
 	
 	
 

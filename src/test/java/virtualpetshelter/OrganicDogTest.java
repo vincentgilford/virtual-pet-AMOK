@@ -144,12 +144,19 @@ public class OrganicDogTest {
 		int beforeCageLvl = underTest.getCageLevel();
 		underTest.cageEffect(); 
 		int afterCageLvl = underTest.getCageLevel(); 
-		int check = underTest.getCageLevel();
+		int check = afterCageLvl;
 		
 		assertThat(check, is(afterCageLvl-beforeCageLvl));
-		
-		
-		
+	}
+	
+	@Test
+	public void removeWasteFromCage() {
+		int beforeCageLv = underTest.getCageLevel();
+		underTest.cageEffect();//add 10 units
+		underTest.cleanCage();//5 units 	
+		int afterCageLvl = underTest.getCageLevel();
+		int check = 5;
+		assertThat(check, is(afterCageLvl-beforeCageLv));
 	}
 	
 	

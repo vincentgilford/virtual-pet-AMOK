@@ -164,13 +164,65 @@ public class VirtualPetShelterTest {
 		underTest.addPet(organicCat);
 	
 		underTest.organicWasteRemove();
-		
 		OrganicCat oCat = (OrganicCat) underTest.findPet(orgCatName);
 		OrganicDog oDog = (OrganicDog) underTest.findPet(dogName);
 		
-		assertThat(40 , is(oDog.getWaste()));
-		assertThat(40, is(oCat.getWaste()));
+		assertThat(20 , is(oDog.getWaste()));
+		assertThat(20, is(oCat.getWaste()));
 	}
+	
+	@Test
+	public void cleanLitterBox() {
+		underTest.addPet(organicDog);
+		underTest.addPet(roboticCat);
+		underTest.addPet(roboticDog);
+		underTest.addPet(organicCat);
+		
+		underTest.organicWasteRemove();
+		OrganicCat oCat = (OrganicCat) underTest.findPet(orgCatName);
+		OrganicDog oDog = (OrganicDog) underTest.findPet(dogName);
+		
+		int check = underTest.getLitterBox();
+		
+		
+		assertThat(10, is(check));
+	}
+	
+	@Test
+	public void checkDogCageLevel() {
+		underTest.addPet(organicDog);
+		underTest.addPet(roboticCat);
+		underTest.addPet(roboticDog);
+		underTest.addPet(organicCat);
+		OrganicCat oCat = (OrganicCat) underTest.findPet(orgCatName);
+		OrganicDog oDog = (OrganicDog) underTest.findPet(dogName);
+		int levelBefore = oDog.getCageLevel();
+		underTest.organicWasteRemove();
+		int levelAfter = oDog.getCageLevel();
+		int check = 10;
+
+		assertThat(check, is(levelAfter-levelBefore));
+	}
+	
+	@Test
+	public void assertThatAllPetsArePlayed() {
+		underTest.addPet(organicDog);
+		underTest.addPet(roboticCat);
+		underTest.addPet(roboticDog);
+		underTest.addPet(organicCat);
+		OrganicCat oCat = (OrganicCat) underTest.findPet(orgCatName);
+		OrganicDog oDog = (OrganicDog) underTest.findPet(dogName);
+		
+		int checkOcatbefore = oCat.getBoredom();
+		int checkOdogbefore = oDog.getBoredom();
+		underTest.playAll();
+		int checkOcatAfter = oCat.getBoredom();
+		int checkOdogAfter = oDog.getBoredom();
+		
+		assertThat(10, is(checkOcatbefore-checkOcatAfter));
+		assertThat(10, is(checkOcatbefore-checkOdogAfter));
+	}
+	
 	
 	
 	

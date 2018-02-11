@@ -129,5 +129,9 @@ public abstract class VirtualPet {
 	
 	public void cageEffect() {
 	}
+	public void cleanCage() {
+		// TODO Auto-generated method stub
+	 
+	}
 
 }
