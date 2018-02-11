@@ -224,6 +224,27 @@ public class VirtualPetShelterTest {
 	}
 	
 	
+	@Test
+	public void assertThatDogsAreWalked() {
+		underTest.addPet(organicDog);
+		underTest.addPet(roboticCat);
+		underTest.addPet(roboticDog);
+		underTest.addPet(organicCat);
+		RoboticDog rDog = (RoboticDog) underTest.findPet(dogRobotName);
+		OrganicDog oDog = (OrganicDog) underTest.findPet(dogName);
+		
+		int robotCheckBefore = rDog.getHappiness();
+		int organicCheckBefore = oDog.getHappiness();
+		underTest.walkAllPets();
+		int robotCheckAfter = rDog.getHappiness();
+		int organicCheckAFter = oDog.getHappiness();
+		
+		assertThat(10, is(robotCheckAfter-robotCheckBefore));
+		assertThat(5, is(organicCheckAFter-organicCheckBefore));
+	}
+	
+	
+	
 	
 	
 	

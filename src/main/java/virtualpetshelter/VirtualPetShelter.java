@@ -192,6 +192,15 @@ public class VirtualPetShelter {
 			pet.petPlayBoredom(10);
 		}
 	}
+
+	public void walkAllPets() {
+		// TODO Auto-generated method stub
+		for(VirtualPet pet : virtualPets.values()){
+			if(pet instanceof Walkable) {
+			pet.walkPet();
+			}
+		} 
+	}
 	
 	
 
