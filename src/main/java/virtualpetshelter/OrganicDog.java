@@ -133,6 +133,9 @@ public class OrganicDog extends Dog implements Walkable {
 		return isWalking;
 	}
 
+	
+
+	
 	@Override
 	public void tickEffect() {
 		// TODO Auto-generated method stub
@@ -143,6 +146,8 @@ public class OrganicDog extends Dog implements Walkable {
 		thirst += 5;
 		boredom += 5;
 		waste += 5;
+		System.out.println(getName() + "waste leve is" + getWaste());
+		
 	}
 
 	@Override
