@@ -8,14 +8,11 @@ public class VirtualPetShelter {
 
 	Map<String, VirtualPet> virtualPets = new HashMap<String, VirtualPet>();
 
-	public void addPet(OrganicCat pet) {
-		virtualPets.put(pet.getName(),  pet);
-	}
 	
-	public void addPet(RoboticDog pet) {
+	
+	public void addPet(VirtualPet pet) {
 		virtualPets.put(pet.getName(), pet);
 	}
-	
 	
 	public VirtualPet findPet(VirtualPet pet) {
 		// TODO Auto-generated method stub
@@ -34,19 +31,26 @@ public class VirtualPetShelter {
 
 	public void feedPetShelter(String name, int amountToFeed) {
 		// TODO Auto-generated method stub
-		OrganicCat petObject = virtualPets.get(name);
-		if(petObject instanceof Cat) {
-			(OrganicCat) petObject.feedPet(10);
+		VirtualPet petObject = virtualPets.get(name);
+		if(petObject instanceof OrganicCat) {
+			petObject.feedOrganicPet(amountToFeed);
+		}
+		if(petObject instanceof OrganicDog) {
+			petObject.feedOrganicPet(amountToFeed);
 		}
 	}
 
 	public void waterPetShelter(String name, int amountToDrink) {
 		// TODO Auto-generated method stub
 		VirtualPet petObject = virtualPets.get(name);
-		petObject.waterPet(amountToDrink);
-		virtualPets.get(name).
+		if(petObject instanceof OrganicCat) {
+			petObject.waterPet(amountToDrink);
+		}
+		if(petObject instanceof OrganicDog) {
+			petObject.waterPet(amountToDrink);
+		}
 	}
-
+//check may delete
 	public String petShelterStatus(String name) {
 		// TODO Auto-generated method stub
 		VirtualPet petObject = virtualPets.get(name);
@@ -62,6 +66,14 @@ public class VirtualPetShelter {
 	public int petShelterHunger(String name) {
 		// TODO Auto-generated method stub
 		VirtualPet petObject = virtualPets.get(name);
+		if(!(petObject instanceof OrganicCat)) {
+			System.out.println("Robotic Pets do not have hunger");
+			return 0;
+		}
+		if(petObject instanceof OrganicDog) {
+			System.out.println("Robotic Pets do not have hunger");
+			return 0;
+		}
 		return petObject.getHunger();
 	}
 
@@ -102,15 +114,18 @@ public class VirtualPetShelter {
 		// TODO Auto-generated method stub
 		for (VirtualPet petObject : virtualPets.values()) {
 			petObject.tickEffect();
-
 		}
 		System.out.println("Cycle Complete");
 	}
-
+	
+	//needs modification
 	public void cleanPetShelter(String name, int wasteAmount) {
 		// TODO Auto-generated method stub
 		VirtualPet petObject = virtualPets.get(name);
 		petObject.wasteRemoval(wasteAmount);
 	}
+	
+	
 
+		
 }

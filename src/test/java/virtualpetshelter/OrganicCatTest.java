@@ -42,7 +42,7 @@ public class OrganicCatTest {
 	@Test
 	public void assertThatIsFedCat() {
 		int beforeHunger= underTest.getHunger(); 
-		underTest.feedPet(10); 
+		underTest.feedOrganicPet(10); 
 		int afterHunger = underTest.getHunger(); 
 		int check = 10;
 		assertThat(check, is(beforeHunger-afterHunger));

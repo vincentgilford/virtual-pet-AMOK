@@ -58,7 +58,7 @@ public class OrganicDogTest {
 	public void assertThatgetHunger() {
 		
 		int beforeHunger = underTest.getHunger();
-		underTest.feedPet(5);
+		underTest.feedOrganicPet(5);
 		int afterHunger = underTest.getHunger(); 
 		int check = afterHunger-beforeHunger;
 		assertThat(check, is(afterHunger-beforeHunger));
