@@ -1,7 +1,7 @@
 package virtualpetshelter;
 
 public class RoboticCat extends Cat {
-	private int oilLevel;
+	private int oilLevel = 100;
 	private boolean isOiled = false;
 
 	public RoboticCat(String name, int boredom, int health, int happiness, int oilLevel) {
@@ -20,6 +20,7 @@ public class RoboticCat extends Cat {
 		this.boredom = statboredom.nextInt(statmax - statmin) + statmin;
 		this.health = stathealth.nextInt(statMaxHealth - statMinHealth) + statMinHealth;
 		this.happiness = stathealth.nextInt(statMaxHealth - statMinHealth) + statMinHealth;
+	
 	}
 
 	public int getHappiness() {

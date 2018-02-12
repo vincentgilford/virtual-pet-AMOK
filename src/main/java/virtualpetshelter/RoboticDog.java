@@ -2,7 +2,7 @@ package virtualpetshelter;
 
 public class RoboticDog extends Dog implements Walkable {
 	private boolean isOiled = false;
-	private int oilLevel;
+	private int oilLevel = 100;
 
 	public RoboticDog(String name, int boredom, int health, int happiness, int oilLevel) {
 		this.name = name;

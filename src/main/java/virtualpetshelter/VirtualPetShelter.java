@@ -199,7 +199,9 @@ public class VirtualPetShelter {
 		for(VirtualPet pet : virtualPets.values()){
 			if(pet instanceof Walkable) {
 			pet.walkPet();
+			System.out.println("Pet has been walked!");
 			}
+		
 		} 
 	}
 

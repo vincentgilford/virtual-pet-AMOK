@@ -3,6 +3,12 @@ package virtualpetshelter;
 import java.util.Random;
 
 public class OrganicCat extends Cat {
+	protected int hunger;
+	protected int waste;
+	protected int thirst;
+	
+	
+	
 	protected Random stathunger = new Random();
 	protected Random statthirst = new Random();
 	protected Random statwaste = new Random();
@@ -36,7 +42,7 @@ public class OrganicCat extends Cat {
 		this.health = stathealth.nextInt(statMaxHealth - statMinHealth) + statMinHealth;
 		this.happiness = stathealth.nextInt(statMaxHealth - statMinHealth) + statMinHealth;
 	}
-
+	@Override
 	public int getHunger() {
 		// TODO Auto-generated method stub
 		return hunger;
@@ -47,7 +53,7 @@ public class OrganicCat extends Cat {
 		// TODO Auto-generated method stub
 		hunger -= amountToFeed;
 	}
-
+	@Override
 	public int getThirst() {
 		// TODO Auto-generated method stub
 		return thirst;
@@ -58,7 +64,7 @@ public class OrganicCat extends Cat {
 		// TODO Auto-generated method stub
 		thirst -= amountToDrink;
 	}
-
+	@Override
 	public int getWaste() {
 		// TODO Auto-generated method stub
 		return waste;

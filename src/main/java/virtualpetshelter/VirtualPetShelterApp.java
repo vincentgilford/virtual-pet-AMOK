@@ -20,7 +20,7 @@ public class VirtualPetShelterApp {
 			String userPetName = input.nextLine();
 			System.out.println("Please also provide a brief description!");
 			String userPetDescription = input.nextLine();
-			System.out.println("What kind of Pet would you like to submit?");
+			System.out.println("What kind of Pet is your entry?");
 			System.out.println("1. RobotDog");
 			System.out.println("2. RobotCat");
 			System.out.println("3. Live Dog");
@@ -48,7 +48,19 @@ public class VirtualPetShelterApp {
 
 		System.out.println("Thank you for all of the pets here is a list of them and their individual stats");
 		for (VirtualPet pet : weCanCodePets.virtualPets.values()) {
-			System.out.println("Name: " + pet.getName() + "\tDescription: " + pet.getDescription());
+			if(pet instanceof OrganicCat) {
+				System.out.println("Name: " + pet.getName() + "\tDescription: " + pet.getDescription() + "\tType: Live Cat");	
+			}
+			if(pet instanceof OrganicDog) {
+				System.out.println("Name: " + pet.getName() + "\tDescription: " + pet.getDescription()+ "\tType: Live Dog");	
+			}
+			if(pet instanceof RoboticDog) {
+				System.out.println("Name: " + pet.getName() + "\tDescription: " + pet.getDescription()+ "\tType: Robotic Dog");	
+			}
+			if(pet instanceof RoboticCat) {
+				System.out.println("Name: " + pet.getName() + "\tDescription: " + pet.getDescription()+ "\tType: Robotic Cat");	
+			}
+			
 		}
 		
 		System.out.println("Welcome back! what would you like to do with the pets");
@@ -72,9 +84,10 @@ public class VirtualPetShelterApp {
 			System.out.println("13. Play with Pet");
 			System.out.println("14. Play with ALL Pets");
 			//new addition
-			System.out.println("15. Check on levels of individual pet");
-			System.out.println("16. List of pets");
-			System.out.println("17. Exit....");
+			System.out.println("15. Walking Dogs");
+			System.out.println("16. Check on levels of individual pet");
+			System.out.println("17. List of pets");
+			System.out.println("18. Exit....");
 			userChoice = input.nextLine().trim();
 
 			if (userChoice.equals("1")) {
@@ -179,8 +192,12 @@ public class VirtualPetShelterApp {
 				weCanCodePets.playAll();
 			}
 			
-			//individual pet levels need to modify toString
 			if (userChoice.equals("15")) {
+				weCanCodePets.walkAllPets();
+			}
+			
+			//individual pet levels need to modify toString
+			if (userChoice.equals("16")) {
 				System.out.println("Which pet would you like to know about:");
 				String userStat = input.nextLine().trim();
 				VirtualPet pet = weCanCodePets.findPet(userStat);
@@ -188,14 +205,14 @@ public class VirtualPetShelterApp {
 			}
 	
 			//list of pets
-			if (userChoice.equals("16")) {
+			if (userChoice.equals("17")) {
 				for (VirtualPet pet : weCanCodePets.virtualPets.values()) {
 					System.out.println(pet);
 				}
 			}
 			
 			weCanCodePets.tickCycle();
-		} while (!userChoice.equals("17"));
+		} while (!userChoice.equals("18"));
 		System.exit(0);
 
 	}

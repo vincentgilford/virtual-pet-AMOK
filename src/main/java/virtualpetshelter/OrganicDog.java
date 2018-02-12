@@ -3,7 +3,10 @@ package virtualpetshelter;
 import java.util.Random;
 
 public class OrganicDog extends Dog implements Walkable {
-
+	protected int hunger;
+	protected int waste;
+	protected int thirst;
+	
 	protected Random stathunger = new Random();
 	protected Random statthirst = new Random();
 	protected Random statboredom = new Random();
@@ -39,12 +42,13 @@ public class OrganicDog extends Dog implements Walkable {
 		this.health = stathealth.nextInt(statMaxHealth - statMinHealth) + statMinHealth;
 		this.happiness = stathealth.nextInt(statMaxHealth - statMinHealth) + statMinHealth;
 	}
-
+	@Override
 	public int getHunger() {
 		// TODO Auto-generated method stub
 		return hunger;
 	}
-
+	
+	@Override
 	public int getThirst() {
 		// TODO Auto-generated method stub
 		return thirst;
@@ -56,7 +60,8 @@ public class OrganicDog extends Dog implements Walkable {
 		waste -= wasteAmount;
 		cageWasteLevel += wasteAmount;
 	}
-
+	
+	@Override
 	public int getWaste() {
 		// TODO Auto-generated method stub
 		return waste;

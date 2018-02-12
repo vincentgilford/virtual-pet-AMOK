@@ -3,25 +3,14 @@ package virtualpetshelter;
 import java.util.Random;
 
 public abstract class VirtualPet {
-
+	
+	//VirtualPet only
 	protected String name;
 	protected String description;
-	protected int health;
-	protected int happiness;
-	protected String overallStatus;
 	protected int boredom;
-	protected int hunger;
-	protected int waste;
-	protected int thirst;
-
-	// public VirtualPet(String name, String description) {
-	// this.name = name;
-	// this.description = description;
-	// this.hunger = stathunger.nextInt(statmax - statmin) + statmin;
-	// this.thirst = statthirst.nextInt(statmax - statmin) + statmin;
-	// this.waste = statwaste.nextInt(statmax - statmin) + statmin;
-	// this.boredom = statboredom.nextInt(statmax - statmin) + statmin;
-	// }
+	protected int health;//batt life for Robotic Animals
+	protected int happiness;
+	
 
 	public String getName() {
 		// TODO Auto-generated method stub
@@ -29,31 +18,7 @@ public abstract class VirtualPet {
 	}
 
 	// may delete
-	public String getPetStatus() {
-		// // TODO Auto-generated method stub
-		// if ((hunger <= 50 && hunger > 45) && (thirst <= 50 && thirst > 45) && (waste
-		// <= 50 && waste > 45)
-		// && (boredom <= 50 && boredom > 45)) {
-		// overallStatus = getName() + " is not doing well!";
-		// } else if ((hunger <= 45 && hunger > 40) && (thirst <= 45 && thirst > 40) &&
-		// (waste <= 45 && waste > 40)
-		// && (boredom <= 45 && boredom >= 40)) {
-		// overallStatus = getName() + " is ok but needs more care. Please take notice
-		// ";
-		// } else if ((hunger <= 40 && hunger > 35) && (thirst <= 40 && thirst > 35) &&
-		// (waste <= 40 && waste > 35)
-		// && (boredom <= 40 && boredom >= 35)) {
-		// overallStatus = getName() + " is doing well. Keep up the good work!";
-		// } else if ((hunger <= 35) && (thirst <= 35) && (waste <= 35) && (boredom <=
-		// 35)) {
-		// overallStatus = getName() + " is doing amazing!!!";
-		// } else {
-		// overallStatus = getName() + " please take notice your pet is in grave
-		// danger!";
-		// }
-		//
-		return "";// overallStatus; // may put the logic of status in another method
-	}
+
 
 	public void petPlayBoredom(int amountPlay) {
 		// TODO Auto-generated method stub
@@ -84,7 +49,7 @@ public abstract class VirtualPet {
 	}
 
 	public int getThirst() {
-		return thirst;
+		return 0;
 	}
 
 	public String getDescription() {
@@ -93,11 +58,11 @@ public abstract class VirtualPet {
 	}
 
 	public int getHunger() {
-		return hunger;
+		return 0;
 	}
 
 	public int getWaste() {
-		return waste;
+		return 0;
 
 	}
 
@@ -119,7 +84,6 @@ public abstract class VirtualPet {
 	}
 
 	public void chargePet(int amountToCharge) {
-
 	}
 
 	
