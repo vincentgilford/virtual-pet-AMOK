@@ -286,22 +286,46 @@ public class VirtualPetShelterTest {
 		int check = 10;
 		assertThat(check, is(checkBefore-checkAFter));
 	}
+		
+	@Test//robot test
+	public void oilRoboticPet() {
+		underTest.addPet(organicDog);
+		underTest.addPet(roboticCat);
+		underTest.addPet(roboticDog);
+		underTest.addPet(organicCat);
+		
+		RoboticDog rDog = (RoboticDog) underTest.findPet(dogRobotName);
+		RoboticCat rCat = (RoboticCat) underTest.findPet(catName);
+		
+		int rDogOilCheckbefore = rDog.getOilLevel();
+		int rCatOilCheckbefore = rCat.getOilLevel();
+		underTest.oilAllPet();
+		int rDogOilCheckafter = rDog.getOilLevel();
+		int rCatOilCheckafter = rCat.getOilLevel();
+		int checkRDog = 5; 
+		int checkRCat = 5;
+		assertThat(checkRDog, is(rDogOilCheckbefore-rDogOilCheckafter));
+		assertThat(checkRCat, is(rCatOilCheckbefore-rCatOilCheckafter));
+	}
 	
-	
-	
-	
-	
-	
-	
-//	@Test//robot test
-//	public void oilRoboticPet() {
-//		underTest.addPet(organicDog);
-//		underTest.addPet(roboticCat);
-//		underTest.addPet(roboticDog);
-//		
-//		
-//	}
-	
+	@Test
+	public void cleanDogCages() {
+		underTest.addPet(organicDog);
+		underTest.addPet(roboticCat);
+		underTest.addPet(roboticDog);
+		underTest.addPet(organicCat);
+		
+		OrganicDog oDog = (OrganicDog) underTest.findPet(dogName);
+		
+		underTest.organicWasteRemove();
+		int cageLevelBefore = oDog.getCageLevel();
+		underTest.cleanCages(); 
+		int cageLevelAFter = oDog.getCageLevel();
+		int check = 5; 
+		assertThat(check, is(cageLevelBefore-cageLevelAFter));
+		
+		
+	}
 	
 	
 	

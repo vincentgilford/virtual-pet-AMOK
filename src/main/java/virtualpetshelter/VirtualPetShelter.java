@@ -209,7 +209,25 @@ public class VirtualPetShelter {
 			System.out.println("Litter Box is empty");
 		}
 	}
-	
+
+	public void oilAllPet() {
+		// TODO Auto-generated method stub
+		for(VirtualPet pet : virtualPets.values()) {
+			if(pet instanceof RoboticDog || pet instanceof RoboticCat) {
+				pet.oilRobot();
+			} 
+		}
+	}
+
+	public void cleanCages() {
+		// TODO Auto-generated method stub
+		for(VirtualPet pet : virtualPets.values()) {
+			if(pet instanceof OrganicDog) {
+				pet.cleanCage();
+				System.out.println("Name: " + pet.getName() + "\tCage Level: " + pet.getCageLevel());
+			}
+		}
+	}
 	
 	
 	
@@ -221,6 +239,6 @@ public class VirtualPetShelter {
 	
 	
 	
-
+	
 		
 }
