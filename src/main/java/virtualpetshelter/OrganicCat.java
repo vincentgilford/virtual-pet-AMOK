@@ -140,5 +140,12 @@ public class OrganicCat extends Cat {
 		waste += 5;
 		System.out.println(getName() + " waste leve is " + getWaste());
 	}
+	
+	@Override
+	public String toString() {
+		return "Name: " + getName() + "\tDescription: " + getDescription() + "\tHealth: " +
+	getHealth() + "\tHunger: " + getHunger() + "\tThirst: " + getThirst() + "\tWaste: " + getWaste() 
+	+ "\tBordom: " + getBoredom() + "\tHappiness: " + getHappiness();	
+	}
 
 }

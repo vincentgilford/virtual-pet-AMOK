@@ -173,4 +173,12 @@ public class OrganicDog extends Dog implements Walkable {
 		cageWasteLevel -= 5; 
 	}
 	
+	@Override
+	public String toString() {
+		return "Name: " + getName() + "\tDescription: " + getDescription() + "\tHealth: " +
+	getHealth() + "\tWalked: " + isWalking + "\tHunger: " + getHunger() + "\tThirst: " + getThirst() + "\tWaste: " + getWaste() 
+	+ "\tBordom: " + getBoredom() + "\tHappiness: " + getHappiness();
+	
+	}
+	
 }

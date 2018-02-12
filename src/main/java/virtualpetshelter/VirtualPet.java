@@ -131,7 +131,7 @@ public abstract class VirtualPet {
 	}
 	public void cleanCage() {
 		// TODO Auto-generated method stub
-	 
+
 	}
 
 }

@@ -25,7 +25,7 @@ public class VirtualPetShelterTest {
 	private static final String dogName = "Fido";
 	private static final String catName = "Kitty";
 	private static final String orgCatName = "RobotKitty";
-	private static final int health = 100;
+	private static final int health = 90;
 	private static final int happiness = 60;
 	private static final int oilLevel = 50;
 	private static final String dogRobotName = "Astro";
@@ -323,7 +323,29 @@ public class VirtualPetShelterTest {
 		int cageLevelAFter = oDog.getCageLevel();
 		int check = 5; 
 		assertThat(check, is(cageLevelBefore-cageLevelAFter));
+	}
+	
+	
+	@Test
+	public void chargeAllRoboticPets() {
+		underTest.addPet(organicDog);
+		underTest.addPet(roboticCat);
+		underTest.addPet(roboticDog);
+		underTest.addPet(organicCat);
 		
+	
+		RoboticDog rDog = (RoboticDog) underTest.findPet(dogRobotName);
+		RoboticCat rCat = (RoboticCat) underTest.findPet(catName);
+		int dogBattCheckBefore = rDog.getHealth();
+		int catBattCheckBefore = rCat.getHealth();
+		underTest.chargeRobots();
+		int dogBattCheckAfter = rDog.getHealth();
+		int catBattCheckAfter = rCat.getHealth();
+		
+		int check = 10;
+		
+		assertThat(check, is(dogBattCheckAfter-dogBattCheckBefore));
+		assertThat(check, is(catBattCheckAfter-catBattCheckBefore));
 		
 	}
 	

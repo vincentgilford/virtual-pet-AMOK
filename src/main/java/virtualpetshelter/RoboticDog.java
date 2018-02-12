@@ -108,8 +108,22 @@ public class RoboticDog extends Dog implements Walkable {
 
 	@Override
 	public void chargePet(int amountToCharge) {
-		health += amountToCharge;
+		if(health >= 100) {
+			System.out.println("Fully Charged");
+		} else {
+			health += amountToCharge;	
+			System.out.println("Charge level: " + getHealth());
+		}
 
 	}
 
+	@Override
+	public String toString() {
+		
+		return "Name: " + getName() + "\tDescription: " + getDescription() + "\tBattery Life: " +
+		getHealth() + "\tOil Level: " + getOilLevel() + "\tWalked: " + isWalking + 
+		 "\tBordom: " + getBoredom() + "\tHappiness: " + getHappiness();
+		
+	}
+	
 }

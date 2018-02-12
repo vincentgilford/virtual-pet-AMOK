@@ -52,11 +52,11 @@ public class VirtualPetShelter {
 		}
 	}
 //check may delete
-	public String petShelterStatus(String name) {
-		// TODO Auto-generated method stub
-		VirtualPet petObject = virtualPets.get(name);
-		return petObject.getPetStatus();
-	}
+//	public String petShelterStatus(String name) {
+//		// TODO Auto-generated method stub
+//		VirtualPet petObject = virtualPets.get(name);
+//		return petObject.getPetStatus();
+//	}
 
 	public void petShelterPlay(String name, int amountPlay) {
 		// TODO Auto-generated method stub
@@ -190,6 +190,7 @@ public class VirtualPetShelter {
 		// TODO Auto-generated method stub
 		for(VirtualPet pet : virtualPets.values()){
 			pet.petPlayBoredom(10);
+			System.out.println("Bordom: " + pet.getBoredom());
 		}
 	}
 
@@ -227,6 +228,17 @@ public class VirtualPetShelter {
 				System.out.println("Name: " + pet.getName() + "\tCage Level: " + pet.getCageLevel());
 			}
 		}
+	}
+
+	public void chargeRobots() {
+		// TODO Auto-generated method stub
+		for(VirtualPet pet : virtualPets.values()) {
+			if(pet instanceof RoboticCat || pet instanceof RoboticDog) {
+				pet.chargePet(10);
+			}
+		}
+	
+	
 	}
 	
 	
