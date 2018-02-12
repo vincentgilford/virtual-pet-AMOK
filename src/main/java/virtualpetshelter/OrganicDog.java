@@ -6,7 +6,7 @@ public class OrganicDog extends Dog implements Walkable {
 	protected int hunger;
 	protected int waste;
 	protected int thirst;
-	
+
 	protected Random stathunger = new Random();
 	protected Random statthirst = new Random();
 	protected Random statboredom = new Random();
@@ -19,8 +19,7 @@ public class OrganicDog extends Dog implements Walkable {
 	protected int statmax = 35;
 	protected int statMaxHealth = 100;
 	protected int statMinHealth = 80;
-	
-	
+
 	public OrganicDog(String name, int hunger, int boredom, int waste, int thirst, int health, int happiness) {
 		// TODO Auto-generated constructor stub
 		this.name = name;
@@ -42,12 +41,13 @@ public class OrganicDog extends Dog implements Walkable {
 		this.health = stathealth.nextInt(statMaxHealth - statMinHealth) + statMinHealth;
 		this.happiness = stathealth.nextInt(statMaxHealth - statMinHealth) + statMinHealth;
 	}
+
 	@Override
 	public int getHunger() {
 		// TODO Auto-generated method stub
 		return hunger;
 	}
-	
+
 	@Override
 	public int getThirst() {
 		// TODO Auto-generated method stub
@@ -60,7 +60,7 @@ public class OrganicDog extends Dog implements Walkable {
 		waste -= wasteAmount;
 		cageWasteLevel += wasteAmount;
 	}
-	
+
 	@Override
 	public int getWaste() {
 		// TODO Auto-generated method stub
@@ -138,9 +138,6 @@ public class OrganicDog extends Dog implements Walkable {
 		return isWalking;
 	}
 
-	
-
-	
 	@Override
 	public void tickEffect() {
 		// TODO Auto-generated method stub
@@ -151,8 +148,9 @@ public class OrganicDog extends Dog implements Walkable {
 		thirst += 5;
 		boredom += 5;
 		waste += 5;
+		isWalking = false;
 		System.out.println(getName() + " waste level is " + getWaste());
-		
+
 	}
 
 	@Override
@@ -163,27 +161,27 @@ public class OrganicDog extends Dog implements Walkable {
 	@Override
 	public void cageEffect() {
 		// TODO Auto-generated method stub
-		if(waste >= 30) {
-			cageWasteLevel += 10; 
+		if (waste >= 30) {
+			cageWasteLevel += 10;
 		} else if (waste > 60) {
-			cageWasteLevel +=20;
+			cageWasteLevel += 20;
 		} else {
 			System.out.println("Cage is relatively clean...");
 		}
 	}
-	
-	@Override 
+
+	@Override
 	public void cleanCage() {
 		// TODO Auto-generated method stub
-		cageWasteLevel -= 5; 
+		cageWasteLevel -= 5;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Name: " + getName() + "\tDescription: " + getDescription() + "\tHealth: " +
-	getHealth() + "\tWalked: " + isWalking + "\tHunger: " + getHunger() + "\tThirst: " + getThirst() + "\tWaste: " + getWaste() 
-	+ "\tBordom: " + getBoredom() + "\tHappiness: " + getHappiness();
-	
+		return "Name: " + getName() + "\tDescription: " + getDescription() + "\tHealth: " + getHealth() + "\tWalked: "
+				+ isWalking + "\tHunger: " + getHunger() + "\tThirst: " + getThirst() + "\tWaste: " + getWaste()
+				+ "\tCage Level: " + getCageLevel() + "\tBordom: " + getBoredom() + "\tHappiness: " + getHappiness();
+
 	}
-	
+
 }

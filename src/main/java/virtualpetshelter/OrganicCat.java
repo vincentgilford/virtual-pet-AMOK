@@ -6,9 +6,7 @@ public class OrganicCat extends Cat {
 	protected int hunger;
 	protected int waste;
 	protected int thirst;
-	
-	
-	
+
 	protected Random stathunger = new Random();
 	protected Random statthirst = new Random();
 	protected Random statwaste = new Random();
@@ -42,6 +40,7 @@ public class OrganicCat extends Cat {
 		this.health = stathealth.nextInt(statMaxHealth - statMinHealth) + statMinHealth;
 		this.happiness = stathealth.nextInt(statMaxHealth - statMinHealth) + statMinHealth;
 	}
+
 	@Override
 	public int getHunger() {
 		// TODO Auto-generated method stub
@@ -53,6 +52,7 @@ public class OrganicCat extends Cat {
 		// TODO Auto-generated method stub
 		hunger -= amountToFeed;
 	}
+
 	@Override
 	public int getThirst() {
 		// TODO Auto-generated method stub
@@ -64,6 +64,7 @@ public class OrganicCat extends Cat {
 		// TODO Auto-generated method stub
 		thirst -= amountToDrink;
 	}
+
 	@Override
 	public int getWaste() {
 		// TODO Auto-generated method stub
@@ -144,14 +145,14 @@ public class OrganicCat extends Cat {
 		thirst += 5;
 		boredom += 5;
 		waste += 5;
-		System.out.println(getName() + " waste leve is " + getWaste());
+		System.out.println(getName() + " waste level is " + getWaste());
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Name: " + getName() + "\tDescription: " + getDescription() + "\tHealth: " +
-	getHealth() + "\tHunger: " + getHunger() + "\tThirst: " + getThirst() + "\tWaste: " + getWaste() 
-	+ "\tBordom: " + getBoredom() + "\tHappiness: " + getHappiness();	
+		return "Name: " + getName() + "\tDescription: " + getDescription() + "\tHealth: " + getHealth() + "\tHunger: "
+				+ getHunger() + "\tThirst: " + getThirst() + "\tWaste: " + getWaste() + "\tBordom: " + getBoredom()
+				+ "\tHappiness: " + getHappiness();
 	}
 
 }

@@ -3,14 +3,13 @@ package virtualpetshelter;
 import java.util.Random;
 
 public abstract class VirtualPet {
-	
-	//VirtualPet only
+
+	// VirtualPet only
 	protected String name;
 	protected String description;
 	protected int boredom;
-	protected int health;//batt life for Robotic Animals
+	protected int health;// batt life for Robotic Animals
 	protected int happiness;
-	
 
 	public String getName() {
 		// TODO Auto-generated method stub
@@ -18,7 +17,6 @@ public abstract class VirtualPet {
 	}
 
 	// may delete
-
 
 	public void petPlayBoredom(int amountPlay) {
 		// TODO Auto-generated method stub
@@ -37,7 +35,6 @@ public abstract class VirtualPet {
 	}
 
 	public void walkPet() {
-
 	}
 
 	abstract public void healthEffect();
@@ -86,13 +83,13 @@ public abstract class VirtualPet {
 	public void chargePet(int amountToCharge) {
 	}
 
-	
 	public int getCageLevel() {
 		return 0;
 	}
-	
+
 	public void cageEffect() {
 	}
+
 	public void cleanCage() {
 		// TODO Auto-generated method stub
 

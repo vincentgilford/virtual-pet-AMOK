@@ -4,6 +4,5 @@ public interface Walkable {
 
 	void walkPet();
 
-	
 	boolean isWalking();
 }

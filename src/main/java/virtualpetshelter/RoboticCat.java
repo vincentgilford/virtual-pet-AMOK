@@ -20,7 +20,7 @@ public class RoboticCat extends Cat {
 		this.boredom = statboredom.nextInt(statmax - statmin) + statmin;
 		this.health = stathealth.nextInt(statMaxHealth - statMinHealth) + statMinHealth;
 		this.happiness = stathealth.nextInt(statMaxHealth - statMinHealth) + statMinHealth;
-	
+
 	}
 
 	public int getHappiness() {
@@ -34,6 +34,7 @@ public class RoboticCat extends Cat {
 		happiness += 5;
 		oilLevel -= 5;
 		isOiled = true;
+		System.out.println("Oil Level: " + getOilLevel());
 	}
 
 	@Override
@@ -77,11 +78,11 @@ public class RoboticCat extends Cat {
 
 	@Override
 	public void chargePet(int amountToCharge) {
-		if(health >= 100) {
+		if (health >= 100) {
 			System.out.println("Fully Charged");
 		} else {
-			health += amountToCharge;	
-			System.out.println("Charge level: " + getHealth());
+			health += amountToCharge;
+			System.out.println(getName() + "Charge level: " + getHealth());
 		}
 	}
 
@@ -94,12 +95,11 @@ public class RoboticCat extends Cat {
 		healthEffect();
 		happinessEffect();
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Name: " + getName() + "\tDescription: " + getDescription() + "\tBattery Life: " +
-	getHealth() + "\tOil Level: " + getOilLevel() + "\tBordom: " + getBoredom() + "\tHappiness: " 
-	+ getHappiness();
+		return "Name: " + getName() + "\tDescription: " + getDescription() + "\tBattery Life: " + getHealth()
+				+ "\tOil Level: " + getOilLevel() + "\tBordom: " + getBoredom() + "\tHappiness: " + getHappiness();
 	}
-	
+
 }

@@ -76,6 +76,7 @@ public class RoboticDog extends Dog implements Walkable {
 		happiness += 5;
 		oilLevel -= 5;
 		isOiled = true;
+		System.out.println("Oil Level: " + getOilLevel());
 	}
 
 	@Override
@@ -103,27 +104,27 @@ public class RoboticDog extends Dog implements Walkable {
 		boredom += 2;
 		healthEffect();
 		happinessEffect();
-
+		isWalking = false;
 	}
 
 	@Override
 	public void chargePet(int amountToCharge) {
-		if(health >= 100) {
+		if (health >= 100) {
 			System.out.println("Fully Charged");
 		} else {
-			health += amountToCharge;	
-			System.out.println("Charge level: " + getHealth());
+			health += amountToCharge;
+			System.out.println(getName() + "Charge level: " + getHealth());
 		}
 
 	}
 
 	@Override
 	public String toString() {
-		
-		return "Name: " + getName() + "\tDescription: " + getDescription() + "\tBattery Life: " +
-		getHealth() + "\tOil Level: " + getOilLevel() + "\tWalked: " + isWalking + 
-		 "\tBordom: " + getBoredom() + "\tHappiness: " + getHappiness();
-		
+
+		return "Name: " + getName() + "\tDescription: " + getDescription() + "\tBattery Life: " + getHealth()
+				+ "\tOil Level: " + getOilLevel() + "\tWalked: " + isWalking + "\tBordom: " + getBoredom()
+				+ "\tHappiness: " + getHappiness();
+
 	}
-	
+
 }
