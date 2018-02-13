@@ -42,38 +42,35 @@ public class OrganicDog extends Dog implements Walkable {
 		this.happiness = stathealth.nextInt(statMaxHealth - statMinHealth) + statMinHealth;
 	}
 
-	@Override
 	public int getHunger() {
 		// TODO Auto-generated method stub
 		return hunger;
 	}
 
-	@Override
 	public int getThirst() {
 		// TODO Auto-generated method stub
 		return thirst;
 	}
 
-	@Override
+
 	public void wasteRemoval(int wasteAmount) {
 		// TODO Auto-generated method stub
 		waste -= wasteAmount;
 		cageWasteLevel += wasteAmount;
 	}
 
-	@Override
 	public int getWaste() {
 		// TODO Auto-generated method stub
 		return waste;
 	}
 
-	@Override
+
 	public void feedOrganicPet(int amountToFeed) {
 		// TODO Auto-generated method stub
 		hunger -= amountToFeed;
 	}
 
-	@Override
+
 	public void waterPet(int amountToDrink) {
 		// TODO Auto-generated method stub
 		thirst -= amountToDrink;
@@ -153,12 +150,10 @@ public class OrganicDog extends Dog implements Walkable {
 
 	}
 
-	@Override
 	public int getCageLevel() {
 		return cageWasteLevel;
 	}
 
-	@Override
 	public void cageEffect() {
 		// TODO Auto-generated method stub
 		if (waste >= 30) {
@@ -170,7 +165,6 @@ public class OrganicDog extends Dog implements Walkable {
 		}
 	}
 
-	@Override
 	public void cleanCage() {
 		// TODO Auto-generated method stub
 		cageWasteLevel -= 5;

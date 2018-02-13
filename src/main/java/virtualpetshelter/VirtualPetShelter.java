@@ -33,11 +33,12 @@ public class VirtualPetShelter {
 	public void feedPetShelter(String name, int amountToFeed) {
 		// TODO Auto-generated method stub
 		VirtualPet petObject = virtualPets.get(name);
-		if (petObject instanceof OrganicCat) {
-			petObject.feedOrganicPet(amountToFeed);
+		
+		if (virtualPets.get(name) instanceof OrganicCat) {
+			((OrganicCat) petObject).feedOrganicPet(amountToFeed);
 		}
 		if (petObject instanceof OrganicDog) {
-			petObject.feedOrganicPet(amountToFeed);
+			((OrganicDog) petObject).feedOrganicPet(amountToFeed);
 		}
 	}
 
@@ -45,10 +46,10 @@ public class VirtualPetShelter {
 		// TODO Auto-generated method stub
 		VirtualPet petObject = virtualPets.get(name);
 		if (petObject instanceof OrganicCat) {
-			petObject.waterPet(amountToDrink);
+			((OrganicCat)petObject).waterPet(amountToDrink);
 		}
 		if (petObject instanceof OrganicDog) {
-			petObject.waterPet(amountToDrink);
+			((OrganicDog)petObject).waterPet(amountToDrink);
 		}
 	}
 
@@ -61,21 +62,32 @@ public class VirtualPetShelter {
 	public int petShelterHunger(String name) {
 		// TODO Auto-generated method stub
 		VirtualPet petObject = virtualPets.get(name);
-		if (!(petObject instanceof OrganicCat)) {
-			System.out.println("Robotic Pets do not have hunger");
-			return 0;
-		}
+		int hungerLevel = 0; 
 		if (petObject instanceof OrganicDog) {
-			System.out.println("Robotic Pets do not have hunger");
-			return 0;
-		}
-		return petObject.getHunger();
+			hungerLevel = ((OrganicDog) petObject).getThirst();
+		} else if (petObject instanceof OrganicCat) {
+			hungerLevel = ((OrganicCat) petObject).getThirst();
+		} else {
+			System.out.println("Robots do not require nourishment");
+		}	
+		return hungerLevel;
 	}
-
+	
+	
+	//not VP
 	public int petShelterThirst(String name) {
 		// TODO Auto-generated method stub
 		VirtualPet petObject = virtualPets.get(name);
-		return petObject.getThirst();
+		int thirstLevel = 0; 
+		if (petObject instanceof OrganicDog) {
+			thirstLevel = ((OrganicDog) petObject).getThirst();
+		} else if (petObject instanceof OrganicCat) {
+			thirstLevel = ((OrganicCat) petObject).getThirst();
+		} else {
+			System.out.println("Robots do not have thirst");
+		}
+		
+		return thirstLevel;
 
 	}
 
@@ -86,13 +98,22 @@ public class VirtualPetShelter {
 
 	}
 
+	//not VP
 	public int petShelterWaste(String name) {
 		// TODO Auto-generated method stub
 		VirtualPet petObject = virtualPets.get(name);
-		return petObject.getWaste();
-
+		int wasteLevel = 0; 
+		if (petObject instanceof OrganicDog) {
+			wasteLevel = ((OrganicDog) petObject).getThirst();
+		} else if (petObject instanceof OrganicCat) {
+			wasteLevel = ((OrganicCat) petObject).getThirst();
+		} else {
+			System.out.println("Robots do not have waste");
+		}
+		return wasteLevel;
 	}
 
+	
 	public String petShelterDescription(String name) {
 		// TODO Auto-generated method stub
 		VirtualPet petObject = virtualPets.get(name);
@@ -113,14 +134,15 @@ public class VirtualPetShelter {
 		System.out.println("Cycle Complete");
 	}
 
-	// needs modification
+	//not VP
 	public void cleanPetShelter(String name, int wasteAmount) {
 		// TODO Auto-generated method stub
 		VirtualPet petObject = virtualPets.get(name);
-		if (petObject instanceof OrganicCat || petObject instanceof OrganicDog) {
-			petObject.wasteRemoval(wasteAmount);
+		if (petObject instanceof OrganicCat) {
+			((OrganicCat)petObject).wasteRemoval(wasteAmount);
+		} else if (petObject instanceof OrganicDog) {
+			((OrganicDog)petObject).wasteRemoval(wasteAmount);
 		} else {
-
 			System.out.println("Robots do not have waste!");
 		}
 
@@ -134,9 +156,12 @@ public class VirtualPetShelter {
 	public void feedAllPets() {
 		// TODO Auto-generated method stub
 		for (VirtualPet pet : virtualPets.values()) {
-			if (pet instanceof OrganicDog || pet instanceof OrganicCat) {
-				pet.feedOrganicPet(10);
-			} else {
+			if (pet instanceof OrganicDog ) {
+				((OrganicDog) pet).feedOrganicPet(10);
+			} else if(pet instanceof OrganicCat) {
+				((OrganicCat) pet).feedOrganicPet(10);
+			}
+			else {
 				System.out.println("Robotic Pets cannot be fed");
 			}
 		}
@@ -145,9 +170,12 @@ public class VirtualPetShelter {
 	public void waterAllPets() {
 		// TODO Auto-generated method stub
 		for (VirtualPet pet : virtualPets.values()) {
-			if (pet instanceof OrganicDog || pet instanceof OrganicCat) {
-				pet.waterPet(10);
-			} else {
+			if (pet instanceof OrganicDog) {
+				((OrganicDog)pet).waterPet(10);
+			} else if(pet instanceof OrganicCat) {
+				((OrganicCat)pet).waterPet(10);
+			}
+			else {
 				System.out.println("Robotic Pets cannot be fed");
 			}
 		}
@@ -157,11 +185,11 @@ public class VirtualPetShelter {
 		// TODO Auto-generated method stub
 		for (VirtualPet pet : virtualPets.values()) {
 			if (pet instanceof OrganicCat) {
-				pet.wasteRemoval(10);
+				((OrganicCat)pet).wasteRemoval(10);
 				poop += 10;
 				litterBox = poop;
 			} else if (pet instanceof OrganicDog) {
-				pet.wasteRemoval(10);// dog cages
+				((OrganicDog)pet).wasteRemoval(10);// dog cages
 			} else {
 				System.out.println("Robotic Pets do not have waste");
 			}
@@ -186,7 +214,7 @@ public class VirtualPetShelter {
 		// TODO Auto-generated method stub
 		for (VirtualPet pet : virtualPets.values()) {
 			if (pet instanceof Walkable) {
-				pet.walkPet();
+				((Walkable)pet).walkPet();
 				System.out.println(pet.getName() + " has been walked!");
 			}
 
@@ -206,18 +234,23 @@ public class VirtualPetShelter {
 	public void oilAllPet() {
 		// TODO Auto-generated method stub
 		for (VirtualPet pet : virtualPets.values()) {
-			if (pet instanceof RoboticDog || pet instanceof RoboticCat) {
-				pet.oilRobot();
+			if (pet instanceof RoboticDog) {
+				((RoboticDog)pet).oilRobot();
+			} else if(pet instanceof RoboticCat) {
+				((RoboticCat)pet).oilRobot();
+			} else {
+				System.out.println("Organic beings do not generate oil");
 			}
 		}
 	}
+
 
 	public void cleanCages() {
 		// TODO Auto-generated method stub
 		for (VirtualPet pet : virtualPets.values()) {
 			if (pet instanceof OrganicDog) {
-				pet.cleanCage();
-				System.out.println("Name: " + pet.getName() + "\tCage Level: " + pet.getCageLevel());
+				((OrganicDog)pet).cleanCage();
+				System.out.println("Name: " + pet.getName() + "\tCage Level: " + ((OrganicDog)pet).getCageLevel());
 			}
 		}
 	}
@@ -225,8 +258,12 @@ public class VirtualPetShelter {
 	public void chargeRobots() {
 		// TODO Auto-generated method stub
 		for (VirtualPet pet : virtualPets.values()) {
-			if (pet instanceof RoboticCat || pet instanceof RoboticDog) {
-				pet.chargePet(10);
+			if (pet instanceof RoboticCat) {
+				((RoboticCat)pet).chargePet(10);
+			} else if (pet instanceof RoboticDog) {
+				((RoboticDog)pet).chargePet(10);
+			} else {
+				System.out.println("Organic Pets do not have outlets");
 			}
 		}
 

@@ -70,7 +70,6 @@ public class RoboticDog extends Dog implements Walkable {
 		oilLevel -= 5;
 	}
 
-	@Override
 	public void oilRobot() {
 		// TODO Auto-generated method stub
 		happiness += 5;
@@ -79,12 +78,10 @@ public class RoboticDog extends Dog implements Walkable {
 		System.out.println("Oil Level: " + getOilLevel());
 	}
 
-	@Override
 	public boolean isOiled() {
 		return isOiled;
 	}
 
-	@Override
 	public int getOilLevel() {
 		// TODO Auto-generated method stub
 		return oilLevel;
@@ -107,7 +104,6 @@ public class RoboticDog extends Dog implements Walkable {
 		isWalking = false;
 	}
 
-	@Override
 	public void chargePet(int amountToCharge) {
 		if (health >= 100) {
 			System.out.println("Fully Charged");

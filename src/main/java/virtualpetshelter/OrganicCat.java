@@ -41,37 +41,35 @@ public class OrganicCat extends Cat {
 		this.happiness = stathealth.nextInt(statMaxHealth - statMinHealth) + statMinHealth;
 	}
 
-	@Override
+	
 	public int getHunger() {
 		// TODO Auto-generated method stub
 		return hunger;
 	}
 
-	@Override
 	public void feedOrganicPet(int amountToFeed) {
 		// TODO Auto-generated method stub
 		hunger -= amountToFeed;
 	}
 
-	@Override
+	
 	public int getThirst() {
 		// TODO Auto-generated method stub
 		return thirst;
 	}
 
-	@Override
+
 	public void waterPet(int amountToDrink) {
 		// TODO Auto-generated method stub
 		thirst -= amountToDrink;
 	}
 
-	@Override
 	public int getWaste() {
 		// TODO Auto-generated method stub
 		return waste;
 	}
 
-	@Override
+
 	public void wasteRemoval(int amountToRemove) {
 		// TODO Auto-generated method stub
 		waste -= amountToRemove;

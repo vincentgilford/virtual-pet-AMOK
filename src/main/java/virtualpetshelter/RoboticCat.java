@@ -28,7 +28,6 @@ public class RoboticCat extends Cat {
 		return happiness;
 	}
 
-	@Override
 	public void oilRobot() {
 		// TODO Auto-generated method stub
 		happiness += 5;
@@ -37,7 +36,6 @@ public class RoboticCat extends Cat {
 		System.out.println("Oil Level: " + getOilLevel());
 	}
 
-	@Override
 	public int getOilLevel() {
 		// TODO Auto-generated method stub
 		return oilLevel;
@@ -71,12 +69,10 @@ public class RoboticCat extends Cat {
 		}
 	}
 
-	@Override
 	public boolean isOiled() {
 		return isOiled;
 	}
 
-	@Override
 	public void chargePet(int amountToCharge) {
 		if (health >= 100) {
 			System.out.println("Fully Charged");
